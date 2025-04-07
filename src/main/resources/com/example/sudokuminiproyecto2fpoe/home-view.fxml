@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="903.0" style="-fx-background-color: #0A1A2F;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudokuminiproyecto2.controller.HomeController">
+   <children>
+      <Label fx:id="errorLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="903.0" style="-fx-background-color: #102841;" text="Avisos: " textAlignment="CENTER" textFill="#e63946">
+         <font>
+            <Font name="Dubai Bold" size="18.0" />
+         </font>
+      </Label>
+      <GridPane fx:id="sudokuGrid" prefHeight="530.0" prefWidth="903.0" style="-fx-background-color: #1D3557;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="2">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="2" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.rowIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" GridPane.columnIndex="1" />
+                  <TextField prefHeight="108.0" prefWidth="151.0" style="-fx-background-color: transparent; -fx-border-color: #457B9D;" />
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="512.0" style="-fx-background-color: #2B67A0;" text="Pista" textFill="#f1faee">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Button>
+   </children>
+</VBox>
