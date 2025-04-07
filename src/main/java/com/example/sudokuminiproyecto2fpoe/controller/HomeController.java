@@ -27,6 +27,7 @@ public class HomeController {
     @FXML
     private void initialize() {
         checks = new Checks(board);
+        initializeBoardCells();
     }
 
 
@@ -53,9 +54,26 @@ public class HomeController {
         board.get(row).get(col).textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if(newValue.matches("")){
+                    board.get(row).get(col).setStyle("-fx-border-color:  #457B9D;");
+                }
+
                 if (!newValue.matches("[1-6]?")) {
                     board.get(row).get(col).setText(oldValue);
                 }
+                else{
+                    if(!newValue.isEmpty()){
+                        if(!checks.allChecks(row, col, newValue)){
+                            board.get(row).get(col).setStyle("-fx-border-color: red;");
+                        }
+                        else{
+                            board.get(row).get(col).setStyle("-fx-border-color: green;");
+                            board.get(row).get(col).setDisable(true);
+                        }
+                    }
+                    errorLabel.setText("Aviso: "+checks.isGameOver());
+                }
+
             }
         });
     }

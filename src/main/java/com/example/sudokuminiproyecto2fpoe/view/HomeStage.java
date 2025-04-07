@@ -1,6 +1,7 @@
 package com.example.sudokuminiproyecto2fpoe.view;
 
 import com.example.sudokuminiproyecto2fpoe.Main;
+import com.example.sudokuminiproyecto2fpoe.controller.HomeController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,14 +13,15 @@ import java.io.IOException;
 public class HomeStage extends Stage {
     private static HomeStage instance;
     Scene scene;
+    FXMLLoader fxmlLoader;
 
 
 
     public HomeStage() throws IOException{
-        FXMLLoader fmlLoader = new FXMLLoader(
+        fxmlLoader = new FXMLLoader(
                 Main.class.getResource("home-view.fxml")
         );
-        Parent root = fmlLoader.load();
+        Parent root = fxmlLoader.load();
         scene = new Scene(root);
         initStage();
     }
@@ -39,4 +41,6 @@ public class HomeStage extends Stage {
         }
         return instance;
     }
+
+
 }
