@@ -26,8 +26,8 @@ public class HomeController {
 
     @FXML
     private void initialize() {
-        checks = new Checks(board);
         initializeBoardCells();
+        checks = new Checks(board);
     }
 
 
@@ -37,7 +37,7 @@ public class HomeController {
         for(int i = 0; i<6; i++)
         {
             board.add(new ArrayList<>());
-            for(int j = 0; j<3; j++){
+            for(int j = 0; j<6; j++){
                 TextField field = new TextField();
                 field.setStyle("-fx-background-color: transparent;"+
                                 "-fx-border-color:  #457B9D;"+
