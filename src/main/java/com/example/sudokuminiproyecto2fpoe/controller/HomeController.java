@@ -42,7 +42,8 @@ public class HomeController {
                 field.setStyle("-fx-background-color: transparent;"+
                                 "-fx-border-color:  #457B9D;"+
                                 "-fx-pref-width: 151;"+
-                                "-fx-pref-height: 108;");
+                                "-fx-pref-height: 108;"+
+                                "-fx-text-fill: #F1FAEE;");
                 board.get(i).add(field);
                 handleTextFields(i,j);
                 sudokuGrid.add(field, j, i);
@@ -55,7 +56,11 @@ public class HomeController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if(newValue.matches("")){
-                    board.get(row).get(col).setStyle("-fx-border-color:  #457B9D;");
+                    board.get(row).get(col).setStyle("-fx-border-color:  #457B9D;"+
+                            "-fx-background-color: transparent;"+
+                                    "-fx-pref-width: 151;"+
+                                    "-fx-pref-height: 108;"+
+                            "-fx-text-fill: #F1FAEE;");
                 }
 
                 if (!newValue.matches("[1-6]?")) {
@@ -64,10 +69,20 @@ public class HomeController {
                 else{
                     if(!newValue.isEmpty()){
                         if(!checks.allChecks(row, col, newValue)){
-                            board.get(row).get(col).setStyle("-fx-border-color: red;");
+                            board.get(row).get(col).setStyle(
+                                    "-fx-background-color: transparent;"+
+                                            "-fx-border-color:  red;"+
+                                            "-fx-pref-width: 151;"+
+                                            "-fx-pref-height: 108;"+
+                                            "-fx-text-fill: #F1FAEE;");
                         }
                         else{
-                            board.get(row).get(col).setStyle("-fx-border-color: green;");
+                            board.get(row).get(col).setStyle(
+                                    "-fx-background-color: transparent;"+
+                                            "-fx-border-color:  green;"+
+                                            "-fx-pref-width: 151;"+
+                                            "-fx-pref-height: 108;"+
+                                    "-fx-text-fill: #F1FAEE;");
                             board.get(row).get(col).setDisable(true);
                         }
                     }
