@@ -3,14 +3,17 @@ package com.example.sudokuminiproyecto2fpoe.model;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
+import java.util.Random;
+
+
 
 public class Checks {
     private ArrayList<ArrayList<TextField>> board;
-    int counter;
-    String errorMessageHorizontal;
-    String errorMessageVertical;
-    String errorMessageLocal;
-    String errorMessage;
+    public int counter;
+    private String errorMessageHorizontal;
+    private String errorMessageVertical;
+    private String errorMessageLocal;
+    private String errorMessage;
 
     public Checks(ArrayList<ArrayList<TextField>> board) {
         this.board = board;
@@ -19,6 +22,10 @@ public class Checks {
         errorMessageVertical = "";
         errorMessageLocal = "";
         errorMessage = "";
+    }
+
+    public void setCounter(){
+        counter++;
     }
 
     public boolean smallBlocksChecks(int row, int col, String number) {
@@ -34,8 +41,8 @@ public class Checks {
             colOrigin = col - (col % 3);
         }
 
-        for( int i = rowOrigin; i < 2; i++) {
-            for( int j = colOrigin; j < 3; j++) {
+        for( int i = rowOrigin; i < 2+rowOrigin; i++) {
+            for( int j = colOrigin; j < 3+colOrigin; j++) {
                 if(board.get(i).get(j).getText().equals(number) && i!=row && j!=col) {
                     errorMessageLocal= "Número repetido en ["+(i+1)+"]["+(1+j)+"]\n";
                     return false;
@@ -73,7 +80,6 @@ public class Checks {
             errorMessage = errorMessageLocal+errorMessageHorizontal+errorMessageVertical;
             return false;
         }
-        counter++;
         return true;
     }
 
@@ -83,6 +89,80 @@ public class Checks {
             errorMessage = "Ganaste, chupon!";
         }
         return errorMessage;
+    }
+
+    public class Positions{
+        public ArrayList<Integer> numberOfPositions;
+
+        public Positions() {
+            numberOfPositions = new ArrayList<>();
+
+            for(int i = 1; i < 37; i++) {
+                numberOfPositions.add(i);
+            }
+        }
+
+        public void clearPositions(int row, int col){
+            numberOfPositions.set((row * 6) + col, 0);
+        }
+
+        public void fillRandomNumbers(int row, int col) {
+            Random random = new Random();
+            int numberRow = random.nextInt(0, 2);
+            int numberCol = random.nextInt(0, 3);
+            int number = random.nextInt(1, 7);
+            if(board.get(row+numberRow).get(col+numberCol).getText().isEmpty() && allChecks(row+numberRow, col+numberCol, String.valueOf(number)) ) {
+                board.get(row+numberRow).get(col+numberCol).setText(String.valueOf(number));
+                clearPositions(row+numberRow, col+numberCol);
+                setCounter();
+            }
+            else{
+                fillRandomNumbers(row, col);
+            }
+        }
+
+        public void fillAllBlocks(){
+            for(int i = 0; i < 2; i++) {
+                fillRandomNumbers(0, 0);
+                fillRandomNumbers(0, 3);
+                fillRandomNumbers(2, 0);
+                fillRandomNumbers(2, 3);
+                fillRandomNumbers(4, 0);
+                fillRandomNumbers(4, 3);
+            }
+        }
+
+        public void helpFunctionality(){
+            Random random = new Random();
+            int numberCell = 0;
+
+            boolean flag = false;
+            for(int i = 0; i < 36; i++) {
+                if(numberOfPositions.get(numberCell) != 0) {
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag) {
+                return;
+            }
+
+            do {
+                numberCell = random.nextInt(0, 36);
+            } while (numberOfPositions.get(numberCell) == 0);
+
+            int randomNumber = random.nextInt(1, 7);
+            int row = numberCell / 6;
+            int col = numberCell % 6;
+            if(numberOfPositions.get(numberCell) != 0 && allChecks(row, col, String.valueOf(randomNumber))) {
+                board.get(row).get(col).setText(String.valueOf(randomNumber));
+                clearPositions(row,col);
+                setCounter();
+            }
+            else{
+                helpFunctionality();
+            }
+        }
     }
 
 }

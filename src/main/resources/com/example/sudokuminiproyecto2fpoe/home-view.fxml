@@ -94,7 +94,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <Button mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="512.0" style="-fx-background-color: #2B67A0;" text="Pista" textFill="#f1faee">
+      <Button fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="512.0" style="-fx-background-color: #2B67A0;" text="Pista" textFill="#f1faee">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

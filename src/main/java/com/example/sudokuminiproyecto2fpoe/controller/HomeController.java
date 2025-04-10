@@ -4,7 +4,9 @@ import com.example.sudokuminiproyecto2fpoe.model.Checks;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -19,15 +21,21 @@ public class HomeController {
     private Label errorLabel;
 
     @FXML
+    private Button helpButton;
+
+    @FXML
     private GridPane sudokuGrid;
 
     private ArrayList<ArrayList<TextField>> board;
     private Checks checks;
+    private Checks.Positions positions;
 
     @FXML
     private void initialize() {
         initializeBoardCells();
         checks = new Checks(board);
+        positions = checks. new Positions();
+        positions.fillAllBlocks();
     }
 
 
@@ -84,6 +92,8 @@ public class HomeController {
                                             "-fx-pref-height: 108;"+
                                     "-fx-text-fill: #F1FAEE;");
                             board.get(row).get(col).setDisable(true);
+                            positions.clearPositions(row, col);
+                            checks.setCounter();
                         }
                     }
                     errorLabel.setText("Aviso: "+checks.isGameOver());
@@ -96,9 +106,10 @@ public class HomeController {
 
     @FXML
     void handleHelp(ActionEvent event) {
-
-
+        positions.helpFunctionality();
+        System.out.println(checks.counter);
+        for(int i = 0; i<36; i++){
+            System.out.println(positions.numberOfPositions.get(i));
+        }
     }
-
-
 }
