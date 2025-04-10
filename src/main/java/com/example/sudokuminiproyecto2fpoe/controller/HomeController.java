@@ -43,8 +43,8 @@ public class HomeController {
                                 "-fx-border-color:  #457B9D;"+
                                 "-fx-pref-width: 151;"+
                                 "-fx-pref-height: 108;");
-                handleTextFields(i,j);
                 board.get(i).add(field);
+                handleTextFields(i,j);
                 sudokuGrid.add(field, j, i);
                 }
             }
