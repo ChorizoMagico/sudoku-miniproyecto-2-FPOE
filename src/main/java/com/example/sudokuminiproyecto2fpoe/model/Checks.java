@@ -2,9 +2,7 @@ package com.example.sudokuminiproyecto2fpoe.model;
 
 import javafx.scene.control.TextField;
 
-import java.util.ArrayList;
-import java.util.Random;
-
+import java.util.*;
 
 
 public class Checks {
@@ -132,36 +130,40 @@ public class Checks {
             }
         }
 
-        public void helpFunctionality(){
+        public void helpFunctionality() {
             Random random = new Random();
-            int numberCell = 0;
 
-            boolean flag = false;
-            for(int i = 0; i < 36; i++) {
-                if(numberOfPositions.get(numberCell) != 0) {
-                    flag = true;
-                    break;
+            List<Integer> emptyCells = new ArrayList<>();
+            for (int i = 0; i < 36; i++) {
+                if (numberOfPositions.get(i) != 0) {
+                    emptyCells.add(i);
                 }
             }
-            if(!flag) {
+
+            if (emptyCells.isEmpty()) {
                 return;
             }
 
-            do {
-                numberCell = random.nextInt(0, 36);
-            } while (numberOfPositions.get(numberCell) == 0);
+            Collections.shuffle(emptyCells);
 
-            int randomNumber = random.nextInt(1, 7);
-            int row = numberCell / 6;
-            int col = numberCell % 6;
-            if(numberOfPositions.get(numberCell) != 0 && allChecks(row, col, String.valueOf(randomNumber))) {
-                board.get(row).get(col).setText(String.valueOf(randomNumber));
-                clearPositions(row,col);
-                setCounter();
+            for (int numberCell : emptyCells) {
+                int row = numberCell / 6;
+                int col = numberCell % 6;
+
+                List<Integer> possibleNumbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+                Collections.shuffle(possibleNumbers);
+
+                for (int num : possibleNumbers) {
+                    String strNum = String.valueOf(num);
+                    if (allChecks(row, col, strNum))
+                    {
+                        board.get(row).get(col).setText(strNum);
+                        clearPositions(row, col);
+                        return;
+                    }
+                }
             }
-            else{
-                helpFunctionality();
-            }
+            //errorMessageVertical= "No se pudo encontrar una ayuda válida deje de oprimir el boton de ayuda.")
         }
     }
 
