@@ -41,8 +41,9 @@ public class Checks {
 
         for( int i = rowOrigin; i < 2+rowOrigin; i++) {
             for( int j = colOrigin; j < 3+colOrigin; j++) {
-                if(board.get(i).get(j).getText().equals(number) && i!=row && j!=col) {
-                    errorMessageLocal= "Número repetido en ["+(i+1)+"]["+(1+j)+"]\n";
+                if(board.get(i).get(j).getText().equals(number) && !(i == row && j == col)) {
+                    errorMessageLocal = "Número repetido en ["+(i+1)+"]["+(1+j)+"]\n";
+                    System.out.println(errorMessageLocal);
                     return false;
                 }
             }
@@ -55,6 +56,7 @@ public class Checks {
         for( int i = 0; i < 6; i++) {
             if(board.get(row).get(i).getText().equals(number) && i!=col) {
                 errorMessageHorizontal= "Número repetido en ["+(row+1)+"]["+(1+i)+"]\n";
+                System.out.println(errorMessageHorizontal);
                 return false;
             }
         }
@@ -66,6 +68,7 @@ public class Checks {
         for( int i = 0; i < 6; i++) {
             if(board.get(i).get(col).getText().equals(number) && i!=row) {
                 errorMessageVertical= "Número repetido en ["+(i+1)+"]["+(1+col)+"]\n";
+                System.out.println(errorMessageVertical);
                 return false;
             }
         }
@@ -74,7 +77,10 @@ public class Checks {
 
     public boolean allChecks(int row, int col, String number) {
         errorMessage = "";
-        if(!verticalChecks(row, col, number) || !smallBlocksChecks(row, col, number) || !horizontalChecks(row, col, number)) {
+        Boolean verticalValid = verticalChecks(row, col, number);
+        Boolean horizontalValid = horizontalChecks(row, col, number);
+        Boolean blocksValid = smallBlocksChecks(row, col, number);
+        if(!verticalValid || !horizontalValid || !blocksValid) {
             errorMessage = errorMessageLocal+errorMessageHorizontal+errorMessageVertical;
             return false;
         }
@@ -112,7 +118,6 @@ public class Checks {
             if(board.get(row+numberRow).get(col+numberCol).getText().isEmpty() && allChecks(row+numberRow, col+numberCol, String.valueOf(number)) ) {
                 board.get(row+numberRow).get(col+numberCol).setText(String.valueOf(number));
                 clearPositions(row+numberRow, col+numberCol);
-                setCounter();
             }
             else{
                 fillRandomNumbers(row, col);

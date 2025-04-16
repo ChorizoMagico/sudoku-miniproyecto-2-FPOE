@@ -71,12 +71,11 @@ public class HomeController {
                                     "-fx-pref-height: 100;"+
                             "-fx-text-fill: #F1FAEE;");
                 }
-
-                if (!newValue.matches("[1-6]?")) {
-                    board.get(row).get(col).setText(oldValue);
-                }
                 else{
-                    if(!newValue.isEmpty()){
+                    if (!newValue.matches("[1-6]?")) {
+                        board.get(row).get(col).setText(oldValue);
+                    }
+                    else{
                         if(!checks.allChecks(row, col, newValue)){
                             board.get(row).get(col).setStyle(
                                     "-fx-background-color: transparent;"+
@@ -91,14 +90,16 @@ public class HomeController {
                                             "-fx-border-color:  green;"+
                                             "-fx-pref-width: 100;"+
                                             "-fx-pref-height: 100;"+
-                                    "-fx-text-fill: #F1FAEE;");
+                                            "-fx-text-fill: #F1FAEE;");
                             board.get(row).get(col).setDisable(true);
                             positions.clearPositions(row, col);
                             checks.setCounter();
                         }
                     }
                     errorLabel.setText("Aviso: "+checks.isGameOver());
-                }
+                    }
+
+
 
             }
         });
@@ -109,8 +110,6 @@ public class HomeController {
     void handleHelp(ActionEvent event) {
         positions.helpFunctionality();
         System.out.println(checks.counter);
-        for(int i = 0; i<36; i++){
-            System.out.println(positions.numberOfPositions.get(i));
-        }
+
     }
 }
