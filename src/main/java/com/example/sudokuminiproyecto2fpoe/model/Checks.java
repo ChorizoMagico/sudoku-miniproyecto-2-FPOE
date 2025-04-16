@@ -112,7 +112,7 @@ public class Checks {
             if(board.get(row+numberRow).get(col+numberCol).getText().isEmpty() && allChecks(row+numberRow, col+numberCol, String.valueOf(number)) ) {
                 board.get(row+numberRow).get(col+numberCol).setText(String.valueOf(number));
                 clearPositions(row+numberRow, col+numberCol);
-                setCounter();
+
             }
             else{
                 fillRandomNumbers(row, col);
