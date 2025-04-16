@@ -48,8 +48,8 @@ public class HomeController {
                 TextField field = new TextField();
                 field.setStyle("-fx-background-color: transparent;" +
                         "-fx-border-color: #457B9D;" +
-                        "-fx-pref-width: 151;" +
-                        "-fx-pref-height: 108;" +
+                        "-fx-pref-width: 100;" +
+                        "-fx-pref-height: 100;" +
                         "-fx-text-fill: #F1FAEE;");
                 field.setAlignment(Pos.CENTER);
 
@@ -67,8 +67,8 @@ public class HomeController {
                 if(newValue.matches("")){
                     board.get(row).get(col).setStyle("-fx-border-color:  #457B9D;"+
                             "-fx-background-color: transparent;"+
-                                    "-fx-pref-width: 151;"+
-                                    "-fx-pref-height: 108;"+
+                                    "-fx-pref-width: 100;"+
+                                    "-fx-pref-height: 100;"+
                             "-fx-text-fill: #F1FAEE;");
                 }
 
@@ -81,16 +81,16 @@ public class HomeController {
                             board.get(row).get(col).setStyle(
                                     "-fx-background-color: transparent;"+
                                             "-fx-border-color:  red;"+
-                                            "-fx-pref-width: 151;"+
-                                            "-fx-pref-height: 108;"+
+                                            "-fx-pref-width: 100;"+
+                                            "-fx-pref-height: 100;"+
                                             "-fx-text-fill: #F1FAEE;");
                         }
                         else{
                             board.get(row).get(col).setStyle(
                                     "-fx-background-color: transparent;"+
                                             "-fx-border-color:  green;"+
-                                            "-fx-pref-width: 151;"+
-                                            "-fx-pref-height: 108;"+
+                                            "-fx-pref-width: 100;"+
+                                            "-fx-pref-height: 100;"+
                                     "-fx-text-fill: #F1FAEE;");
                             board.get(row).get(col).setDisable(true);
                             positions.clearPositions(row, col);

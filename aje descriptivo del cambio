@@ -1,0 +1,47 @@
+[33mcommit e079cc7f7e8d54c355709406b8e29c4c34ea5792[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32msfaa[m[33m, [m[1;31morigin/jeas[m[33m)[m
+Author: ChorizoMagico <juanestebanarias.2006@gmail.com>
+Date:   Thu Apr 10 02:52:54 2025 -0500
+
+    Added two random numbers functionality and help button functionality. However, the recursion of the help button is not sustainable. Fix that. Version 0.2.4
+
+[33mcommit 738da6682e85568d948ac7e1f69e985b98d566e5[m
+Author: ChorizoMagico <juanestebanarias.2006@gmail.com>
+Date:   Thu Apr 10 01:10:49 2025 -0500
+
+    Fixing visual aspects of the board. Version 0.2.3
+
+[33mcommit 64b71b6e3ad15cba5bbbf1425f6ba81291a5117e[m
+Author: ChorizoMagico <juanestebanarias.2006@gmail.com>
+Date:   Thu Apr 10 01:01:56 2025 -0500
+
+    Fixing the board null error in the HomeController class in the initialize method. Version 0.2.2
+
+[33mcommit 36944c830b1f5906db77bd647fbf3567b9467a06[m
+Author: ChorizoMagico <juanestebanarias.2006@gmail.com>
+Date:   Thu Apr 10 00:29:05 2025 -0500
+
+    Fixing the index error in initialize method in the HomeController class. Version 0.2.1
+
+[33mcommit 256b4a7b055955df1b61b13cb588470c59bc9242[m
+Author: ChorizoMagico <juanestebanarias.2006@gmail.com>
+Date:   Mon Apr 7 02:43:58 2025 -0500
+
+    Termino los event handlers para los text fields
+
+[33mcommit be61f847d1a13f5744559f62e1e7182fcb195087[m
+Author: ChorizoMagico <juanestebanarias.2006@gmail.com>
+Date:   Mon Apr 7 00:28:12 2025 -0500
+
+    Termino los checkeos para validar entradas correctas dentro del sudoku, tanto local, como vertical e horizontalmente
+
+[33mcommit b75c8d800c803e54245226c1461dbe141a553d0a[m
+Author: ChorizoMagico <juanestebanarias.2006@gmail.com>
+Date:   Mon Apr 7 00:20:29 2025 -0500
+
+    Creo el HomeStage, creo el controlador para entradas válidas y organizo un ArrayList de TextFields dentro del Grid
+
+[33mcommit 0ef578fa9240286d57bfe182ef97f66bb0207ec2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: ChorizoMagico <juanestebanarias.2006@gmail.com>
+Date:   Sun Apr 6 18:46:37 2025 -0500
+
+    Plantilla del proyecto creada por intellij idea
