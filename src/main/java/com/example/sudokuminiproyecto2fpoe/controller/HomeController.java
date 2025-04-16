@@ -6,6 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -39,24 +40,24 @@ public class HomeController {
     }
 
 
-    private void initializeBoardCells()
-    {
+    private void initializeBoardCells() {
         board = new ArrayList<>();
-        for(int i = 0; i<6; i++)
-        {
+        for (int i = 0; i < 6; i++) {
             board.add(new ArrayList<>());
-            for(int j = 0; j<6; j++){
+            for (int j = 0; j < 6; j++) {
                 TextField field = new TextField();
-                field.setStyle("-fx-background-color: transparent;"+
-                                "-fx-border-color:  #457B9D;"+
-                                "-fx-pref-width: 151;"+
-                                "-fx-pref-height: 108;"+
-                                "-fx-text-fill: #F1FAEE;");
+                field.setStyle("-fx-background-color: transparent;" +
+                        "-fx-border-color: #457B9D;" +
+                        "-fx-pref-width: 151;" +
+                        "-fx-pref-height: 108;" +
+                        "-fx-text-fill: #F1FAEE;");
+                field.setAlignment(Pos.CENTER);
+
                 board.get(i).add(field);
-                handleTextFields(i,j);
+                handleTextFields(i, j);
                 sudokuGrid.add(field, j, i);
-                }
             }
+        }
     }
 
     private void handleTextFields(int row, int col) {
