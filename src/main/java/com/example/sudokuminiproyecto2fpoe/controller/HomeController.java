@@ -15,10 +15,6 @@ import java.util.ArrayList;
 
 
 
-import javafx.scene.effect.DropShadow;
-import javafx.scene.paint.Color;
-
-
 public class HomeController {
 
     @FXML
@@ -50,22 +46,16 @@ public class HomeController {
                 TextField field = new TextField();
                 field.setStyle(
                         "-fx-background-color: transparent;" +
-                                "-fx-border-color: #A8DADC;" +        // Azul claro para los bordes
+                                "-fx-border-color: #BDE0FE;" +  // Azul claro suave
+                                "-fx-border-width: 1px;" +
+                                "-fx-border-radius: 10px;" +
+                                "-fx-background-radius: 10px;" +
                                 "-fx-pref-width: 100;" +
                                 "-fx-pref-height: 100;" +
-                                "-fx-text-fill: #1D3557;" +            // Azul oscuro para el texto (casi negro)
-                                "-fx-font-weight: bold;"               // Texto más grueso
+                                "-fx-text-fill: #1D3557;" +       // Azul oscuro
+                                "-fx-font-weight: bold;" +
+                                "-fx-font-size: 20px;"
                 );
-
-                // Agregar contorno más resaltado (blanco)
-                DropShadow textShadow = new DropShadow();
-                textShadow.setColor(Color.WHITE);  // Contorno blanco
-                textShadow.setRadius(3);           // Aumentar el tamaño del contorno
-                textShadow.setOffsetX(2);         // Aumentar desplazamiento en X
-                textShadow.setOffsetY(2);         // Aumentar desplazamiento en Y
-
-                field.setEffect(textShadow);      // Aplicar el efecto
-
                 field.setAlignment(Pos.CENTER);
 
                 board.get(i).add(field);
@@ -82,20 +72,16 @@ public class HomeController {
                 if (newValue.isEmpty()) {
                     board.get(row).get(col).setStyle(
                             "-fx-background-color: transparent;" +
-                                    "-fx-border-color: #A8DADC;" +       // Azul claro para los bordes
+                                    "-fx-border-color: #BDE0FE;" +  // Azul claro suave
+                                    "-fx-border-width: 1px;" +
+                                    "-fx-border-radius: 10px;" +
+                                    "-fx-background-radius: 10px;" +
                                     "-fx-pref-width: 100;" +
                                     "-fx-pref-height: 100;" +
-                                    "-fx-text-fill: #1D3557;" +           // Azul oscuro para el texto
-                                    "-fx-font-weight: bold;"              // Texto más grueso
+                                    "-fx-text-fill: #1D3557;" +       // Azul oscuro
+                                    "-fx-font-weight: bold;" +
+                                    "-fx-font-size: 20px;"
                     );
-                    // Agregar contorno blanco más resaltado
-                    DropShadow textShadow = new DropShadow();
-                    textShadow.setColor(Color.WHITE);
-                    textShadow.setRadius(3);
-                    textShadow.setOffsetX(2);
-                    textShadow.setOffsetY(2);
-
-                    board.get(row).get(col).setEffect(textShadow); // Aplicar el efecto
                 }
 
                 if (!newValue.matches("[1-6]?")) {
@@ -105,38 +91,30 @@ public class HomeController {
                         if (!checks.allChecks(row, col, newValue)) {
                             board.get(row).get(col).setStyle(
                                     "-fx-background-color: transparent;" +
-                                            "-fx-border-color: #E63946;" +       // Coral (rojo alerta)
+                                            "-fx-border-color: #FF7F7F;" + // Coral suave (error)
+                                            "-fx-border-width: 1px;" +
+                                            "-fx-border-radius: 10px;" +
+                                            "-fx-background-radius: 10px;" +
                                             "-fx-pref-width: 100;" +
                                             "-fx-pref-height: 100;" +
-                                            "-fx-text-fill: #1D3557;" +           // Azul oscuro para el texto
-                                            "-fx-font-weight: bold;"             // Texto más grueso
+                                            "-fx-text-fill: #1D3557;" +
+                                            "-fx-font-weight: bold;" +
+                                            "-fx-font-size: 20px;"
                             );
-                            // Agregar contorno blanco más resaltado
-                            DropShadow textShadow = new DropShadow();
-                            textShadow.setColor(Color.WHITE);
-                            textShadow.setRadius(3);
-                            textShadow.setOffsetX(2);
-                            textShadow.setOffsetY(2);
-
-                            board.get(row).get(col).setEffect(textShadow); // Aplicar el efecto
                         } else {
-                            // Cambiar color del texto a negro cuando el número sea válido
                             board.get(row).get(col).setStyle(
-                                    "-fx-background-color: transparent;" +
-                                            "-fx-border-color: #2A9D8F;" +       // Verde tropical para el borde
+                                    "-fx-background-color: #E0FBFC;" +        // Celeste claro playero
+                                            "-fx-border-color: #80CED6;" +            // Turquesa suave
+                                            "-fx-border-width: 1px;" +
+                                            "-fx-border-radius: 10px;" +
+                                            "-fx-background-radius: 10px;" +
                                             "-fx-pref-width: 100;" +
                                             "-fx-pref-height: 100;" +
-                                            "-fx-text-fill: #000000;" +           // Texto negro
-                                            "-fx-font-weight: bold;"             // Texto más grueso
+                                            "-fx-text-fill: #000000;" +               // Texto negro
+                                            "-fx-font-weight: bold;" +
+                                            "-fx-font-size: 20px;" +
+                                            "-fx-opacity: 1;"                         // Asegura que no se vea desvanecido
                             );
-                            // Agregar contorno blanco más resaltado
-                            DropShadow textShadow = new DropShadow();
-                            textShadow.setColor(Color.WHITE);
-                            textShadow.setRadius(3);
-                            textShadow.setOffsetX(2);
-                            textShadow.setOffsetY(2);
-
-                            board.get(row).get(col).setEffect(textShadow); // Aplicar el efecto
                             board.get(row).get(col).setDisable(true);
                             positions.clearPositions(row, col);
                             checks.setCounter();
