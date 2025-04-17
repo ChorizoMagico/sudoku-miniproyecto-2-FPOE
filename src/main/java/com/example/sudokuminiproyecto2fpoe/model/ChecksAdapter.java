@@ -4,34 +4,49 @@ import javafx.scene.control.TextField;
 
 import java.util.*;
 
+/**
+ * * @author Juan Arias
+ * @author Steven Aragón
+ * @version 1.0* Abstract adapter class implementing the Sudoku game validation logic.
+ * Provides base functionality for checking Sudoku rules and managing game state.
+ */
+public abstract class ChecksAdapter implements iChecks {
 
-public abstract class ChecksAdapter implements iChecks{
-
-
+    /** 2D list representing the Sudoku game board text fields */
     protected ArrayList<ArrayList<TextField>> board;
 
-
+    /** Counter tracking the number of valid moves made */
     protected int counter;
 
-
+    /** Error message for horizontal (row) validation failures */
     protected String errorMessageHorizontal;
 
-
+    /** Error message for vertical (column) validation failures */
     protected String errorMessageVertical;
 
-
+    /** Error message for local block validation failures */
     protected String errorMessageLocal;
 
-
+    /** Combined error message for all validation failures */
     protected String errorMessage;
 
-
+    /**
+     * Increments the move counter by one.
+     * Called after each successful valid move.
+     */
     @Override
-    public void setCounter(){
+    public void setCounter() {
         counter++;
     }
 
-
+    /**
+     * Validates if a number can be placed in its 2x3 sub-block without duplicates.
+     *
+     * @param row The row index (0-5) of the cell being checked
+     * @param col The column index (0-5) of the cell being checked
+     * @param number The candidate number as String (1-6)
+     * @return true if valid placement, false if duplicate exists in sub-block
+     */
     @Override
     public boolean smallBlocksChecks(int row, int col, String number) {
         errorMessageLocal = "";
@@ -57,7 +72,14 @@ public abstract class ChecksAdapter implements iChecks{
         return true;
     }
 
-
+    /**
+     * Validates if a number can be placed in its row without duplicates.
+     *
+     * @param row The row index (0-5) to validate
+     * @param col The column index (0-5) being checked (excluded from validation)
+     * @param number The candidate number as String (1-6)
+     * @return true if valid placement, false if duplicate exists in row
+     */
     @Override
     public boolean horizontalChecks(int row, int col, String number) {
         errorMessageHorizontal = "";
@@ -70,6 +92,14 @@ public abstract class ChecksAdapter implements iChecks{
         return true;
     }
 
+    /**
+     * Validates if a number can be placed in its column without duplicates.
+     *
+     * @param row The row index (0-5) being checked (excluded from validation)
+     * @param col The column index (0-5) to validate
+     * @param number The candidate number as String (1-6)
+     * @return true if valid placement, false if duplicate exists in column
+     */
     @Override
     public boolean verticalChecks(int row, int col, String number) {
         errorMessageVertical = "";
@@ -82,6 +112,14 @@ public abstract class ChecksAdapter implements iChecks{
         return true;
     }
 
+    /**
+     * Performs comprehensive validation (sub-block, row, and column checks).
+     *
+     * @param row The row index (0-5) of the cell
+     * @param col The column index (0-5) of the cell
+     * @param number The candidate number as String (1-6)
+     * @return true only if all validation checks pass
+     */
     @Override
     public boolean allChecks(int row, int col, String number) {
         errorMessage = "";
@@ -95,7 +133,12 @@ public abstract class ChecksAdapter implements iChecks{
         return true;
     }
 
-
+    /**
+     * Determines if the game has been won (all cells filled).
+     *
+     * @return Victory message if counter reaches 36 (6x6 grid),
+     *         otherwise returns current error message
+     */
     @Override
     public String isGameOver(){
         if(counter >= 36)
@@ -105,11 +148,17 @@ public abstract class ChecksAdapter implements iChecks{
         return errorMessage;
     }
 
-
-    public class Positions{
+    /**
+     * Inner class handling Sudoku cell position management.
+     * Manages available positions and provides helper functionality.
+     */
+    public class Positions {
+        /** List tracking available cell positions (1-36) */
         public ArrayList<Integer> numberOfPositions;
 
-
+        /**
+         * Initializes position tracker with all 36 cells (1-6 numbering).
+         */
         public Positions() {
             numberOfPositions = new ArrayList<>();
 
@@ -118,10 +167,22 @@ public abstract class ChecksAdapter implements iChecks{
             }
         }
 
+        /**
+         * Marks a cell position as filled.
+         *
+         * @param row The row index (0-5) of the filled cell
+         * @param col The column index (0-5) of the filled cell
+         */
         public void clearPositions(int row, int col){
             numberOfPositions.set((row * 6) + col, 0);
         }
 
+        /**
+         * Attempts to fill a random valid number in a 2x3 block.
+         *
+         * @param row The base row index (0, 2, or 4) of the block
+         * @param col The base column index (0 or 3) of the block
+         */
         public void fillRandomNumbers(int row, int col) {
             Random random = new Random();
             int numberRow = random.nextInt(0, 2);
@@ -136,6 +197,10 @@ public abstract class ChecksAdapter implements iChecks{
             }
         }
 
+        /**
+         * Fills random valid numbers in all six 2x3 blocks.
+         * Called during game initialization.
+         */
         public void fillAllBlocks(){
             for(int i = 0; i < 2; i++) {
                 fillRandomNumbers(0, 0);
@@ -147,6 +212,10 @@ public abstract class ChecksAdapter implements iChecks{
             }
         }
 
+        /**
+         * Provides hint functionality by filling a random valid number.
+         * Processes empty cells in random order until finding a valid placement.
+         */
         public void helpFunctionality() {
             Random random = new Random();
 
