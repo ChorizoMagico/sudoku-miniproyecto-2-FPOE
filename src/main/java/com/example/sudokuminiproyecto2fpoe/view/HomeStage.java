@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 
+
 public class HomeStage extends HomeStageAdapter {
+
 
     public HomeStage() throws IOException{
         fxmlLoader = new FXMLLoader(

@@ -8,11 +8,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public abstract class HomeStageAdapter extends Stage implements iHomeStage{
 
+
     protected static HomeStage instance;
+
+
     protected Scene scene;
+
+
     protected FXMLLoader fxmlLoader;
+
 
     @Override
     public void initStage() {
@@ -23,6 +30,7 @@ public abstract class HomeStageAdapter extends Stage implements iHomeStage{
         setScene(scene);
         show();
     }
+
 
     public static HomeStage getInstance() throws IOException {
         if(instance == null){

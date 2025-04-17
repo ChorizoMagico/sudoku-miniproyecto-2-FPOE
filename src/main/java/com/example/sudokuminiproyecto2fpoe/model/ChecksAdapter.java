@@ -4,19 +4,33 @@ import javafx.scene.control.TextField;
 
 import java.util.*;
 
+
 public abstract class ChecksAdapter implements iChecks{
 
+
     protected ArrayList<ArrayList<TextField>> board;
+
+
     protected int counter;
+
+
     protected String errorMessageHorizontal;
+
+
     protected String errorMessageVertical;
+
+
     protected String errorMessageLocal;
+
+
     protected String errorMessage;
+
 
     @Override
     public void setCounter(){
         counter++;
     }
+
 
     @Override
     public boolean smallBlocksChecks(int row, int col, String number) {
@@ -36,7 +50,6 @@ public abstract class ChecksAdapter implements iChecks{
             for( int j = colOrigin; j < 3+colOrigin; j++) {
                 if(board.get(i).get(j).getText().equals(number) && !(i == row && j == col)) {
                     errorMessageLocal = "Número repetido en ["+(i+1)+"]["+(1+j)+"]\n";
-                    System.out.println(errorMessageLocal);
                     return false;
                 }
             }
@@ -44,13 +57,13 @@ public abstract class ChecksAdapter implements iChecks{
         return true;
     }
 
+
     @Override
     public boolean horizontalChecks(int row, int col, String number) {
         errorMessageHorizontal = "";
         for( int i = 0; i < 6; i++) {
             if(board.get(row).get(i).getText().equals(number) && i!=col) {
                 errorMessageHorizontal= "Número repetido en ["+(row+1)+"]["+(1+i)+"]\n";
-                System.out.println(errorMessageHorizontal);
                 return false;
             }
         }
@@ -63,7 +76,6 @@ public abstract class ChecksAdapter implements iChecks{
         for( int i = 0; i < 6; i++) {
             if(board.get(i).get(col).getText().equals(number) && i!=row) {
                 errorMessageVertical= "Número repetido en ["+(i+1)+"]["+(1+col)+"]\n";
-                System.out.println(errorMessageVertical);
                 return false;
             }
         }
@@ -83,6 +95,7 @@ public abstract class ChecksAdapter implements iChecks{
         return true;
     }
 
+
     @Override
     public String isGameOver(){
         if(counter >= 36)
@@ -92,8 +105,10 @@ public abstract class ChecksAdapter implements iChecks{
         return errorMessage;
     }
 
+
     public class Positions{
         public ArrayList<Integer> numberOfPositions;
+
 
         public Positions() {
             numberOfPositions = new ArrayList<>();
