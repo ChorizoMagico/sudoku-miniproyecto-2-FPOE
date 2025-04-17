@@ -9,15 +9,28 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+/**
+ * @author Juan Arias
+ * @author Steven Aragón
+ * @version 1.0
+ * Concrete implementation of the Sudoku game's main stage.
+ * Handles the loading and initialization of the primary game interface.
+ * <p>
+ * Extends the base adapter to provide specific FXML loading behavior.
+ */
+public class HomeStage extends HomeStageAdapter {
 
-public class HomeStage extends Stage {
-    private static HomeStage instance;
-    Scene scene;
-    FXMLLoader fxmlLoader;
-
-
-
-    public HomeStage() throws IOException{
+    /**
+     * Constructs the main application stage by:
+     * <ol>
+     *   <li>Loading the FXML layout from "home-view.fxml"</li>
+     *   <li>Creating a new Scene with the loaded layout</li>
+     *   <li>Initializing the stage via parent class</li>
+     * </ol>
+     *
+     * @throws IOException If the FXML file cannot be loaded
+     */
+    public HomeStage() throws IOException {
         fxmlLoader = new FXMLLoader(
                 Main.class.getResource("home-view.fxml")
         );
@@ -25,22 +38,4 @@ public class HomeStage extends Stage {
         scene = new Scene(root);
         initStage();
     }
-
-    private void initStage() {
-        setTitle("Sudoku Intergaláctico");
-        setResizable(false);
-        getIcons().add(
-                new Image(String.valueOf(getClass().getResource("/com/example/sudokuminiproyecto2fpoe/favicon.png"))));
-        setScene(scene);
-        show();
-    }
-
-    public static HomeStage getInstance() throws IOException {
-        if(instance == null){
-            instance = new HomeStage();
-        }
-        return instance;
-    }
-
-
 }
